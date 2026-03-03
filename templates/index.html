@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LearnEase | Multi-model Teaching Tool</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <main class="container">
+    <h1>LearnEase</h1>
+    <p>Adaptive learning from a keyword, with visual explanations, quiz checks, and learning history.</p>
+
+    <section class="card">
+      <h2>Create lesson</h2>
+      <form id="lesson-form">
+        <label>Topic / Keyword
+          <input id="topic" required placeholder="e.g., Photosynthesis" />
+        </label>
+
+        <label>Learning methodology
+          <select id="methodology">
+            <option value="step">Step-by-step scaffolding</option>
+            <option value="story">Story-based learning</option>
+            <option value="feynman">Feynman simplification</option>
+            <option value="practice">Practice-first learning</option>
+          </select>
+        </label>
+
+        <label>Preferred language
+          <input id="language" value="English" />
+        </label>
+
+        <label>Visual explanation style
+          <select id="visual">
+            <option value="flow">Flowchart</option>
+            <option value="timeline">Timeline</option>
+            <option value="mindmap">Mind map</option>
+            <option value="comparison">Comparison table</option>
+          </select>
+        </label>
+
+        <button type="submit">Generate content</button>
+      </form>
+    </section>
+
+    <section id="lesson" class="card hidden"></section>
+    <section id="quiz" class="card hidden"></section>
+
+    <section class="card">
+      <h2>Continued learning history (device/IP based ID)</h2>
+      <button id="refresh-history">Refresh history</button>
+      <ul id="history-list"></ul>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
